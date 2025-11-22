@@ -4,30 +4,32 @@
 # The function should return anagrams or not anagrams.✅
 # The function should check if the words are the same length.✅
 # The function should check character counts for each word.✅
-# The function should ignore spaces and punctuation.
-import string
+# The function should ignore spaces and punctuation.✅
 
 def clean_word(word):
     word = word.lower()
-    return "".join(char for char in word if char in string.ascii_lowercase)
+    return "".join(char for char in word if char.isalpha())
 
 def is_anagram():
-    word1 = list(input("Enter first word: ").lower())
-    word2 = list(input("Enter second word: ").lower())
+    word1 = clean_word(input("Enter first word: "))
+    word2 = clean_word(input("Enter second word: "))
 
     # check if the words are the same length
     if len(word1) != len(word2):
+        return "not anagrams"
+
+    # check if words are empty
+    if not word1 or not word2:
         return "not anagrams"
 
     # check character counts for each word
     char_count1 = {}
     char_count2 = {}
 
-
     for char in word1:
         char_count1[char] = char_count1.get(char, 0) + 1 # this is a dictionary that counts the number of times each character appears in the word
         # char_count1[char], char is the key and char_count1.get(char, 0) is the value. if the character is not in the dictionary, it will add it with a value of 0.
-        # char_count1.get(char, 0) is the value, value is the number of times the character appears in the word. if the character is not in the dictionary, it will add it with a value of 0.
+        # char_count1.get(char, 0) is the value, value is the number of times the character appears in the word.
     for char in word2:
         char_count2[char] = char_count2.get(char, 0) + 1 
 
@@ -35,5 +37,4 @@ def is_anagram():
         return "anagrams"
     else:
         return "not anagrams"
-
 print(is_anagram())
