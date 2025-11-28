@@ -1,5 +1,5 @@
 # anagrams are words that have the same letters in the same quantity, but in a different order.
-# Objective: Write a function that checks if two words are anagrams.
+# Objective: Write a function that checks if two words are anagrams. ✅
 # The function should ask for two words from the user.✅
 # The function should return anagrams or not anagrams.✅
 # The function should check if the words are the same length.✅
